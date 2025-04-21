@@ -5,7 +5,7 @@ def get_connection():
         connection = oracledb.connect(
             user="system",
             password="2003",
-            dsn="localhost:1521/orcl",
+            dsn="localhost:1521/xe",
         )
         return connection
     except oracledb.DatabaseError as e:
