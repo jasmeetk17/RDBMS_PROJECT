@@ -1,11 +1,9 @@
-# app/routes/recommendations.py
-from flask import Blueprint, jsonify, request
-from app.utils.ml_utils import recommend_jobs
+from flask import Blueprint, jsonify
+from app.utils.ml_utils import get_recommendations
 
-recommendation_routes = Blueprint('recommendations', __name__, url_prefix='/recommend')
+recommendations_bp = Blueprint('recommendations', __name__)
 
-@recommendation_routes.route('/<user_id>', methods=['GET'])
-def get_recommendations(user_id):
-    recommendations = recommend_jobs(user_id)
-    return jsonify(recommendations)
-
+@recommendations_bp.route('/recommend/<int:user_id>', methods=['GET'])
+def recommend(user_id):
+    recommended_jobs = get_recommendations(user_id)
+    return jsonify(recommended_jobs)

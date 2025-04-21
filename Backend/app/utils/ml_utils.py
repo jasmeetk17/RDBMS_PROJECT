@@ -1,6 +1,8 @@
-import joblib
+import pickle
 
-model = joblib.load(r"C:\Users\Murli mohan\Downloads\Project Rdbms\Backend\app\ml_model\model.pkl")
+# Load model
+model = pickle.load(open('app/ml_model/model.pkl', 'rb'))
 
-def recommend_jobs(input_data):
-    return model.predict([input_data])
+def get_recommendations(user_id):
+    # dummy: real logic based on model and user profile
+    return [{"job_id": 5, "title": "ML Engineer"}]
