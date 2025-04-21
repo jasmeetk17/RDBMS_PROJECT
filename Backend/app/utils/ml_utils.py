@@ -1,7 +1,6 @@
-import pickle
+import joblib
+model = joblib.load('app/ml_model/model_updated.pkl')
 
-# Load model
-model = pickle.load(open('app/ml_model/model.pkl', 'rb'))
 
 def get_recommendations(user_id):
     # dummy: real logic based on model and user profile
